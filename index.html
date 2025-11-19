@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>一括シートApps v2 改修報告書（2025年11月）</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+            line-height: 1.8;
+            font-size: 16px;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .header h1 {
+            font-size: 2em;
+            margin-bottom: 5px;
+        }
+
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.95;
+        }
+
+        .important-box {
+            background: #fff3cd;
+            border: 4px solid #ffc107;
+            border-radius: 10px;
+            padding: 25px;
+            margin: 20px 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .important-box h2 {
+            color: #856404;
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-size: 1.6em;
+        }
+
+        .important-box .main-point {
+            background: white;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border-left: 5px solid #ffc107;
+            font-size: 1.05em;
+        }
+
+        .section {
+            background: white;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .section h2 {
+            color: #667eea;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            font-size: 1.5em;
+        }
+
+        .feature-box {
+            background: #f8f9fa;
+            border-left: 5px solid #28a745;
+            padding: 15px 20px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+
+        .feature-box h3 {
+            color: #28a745;
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+
+        .feature-box p {
+            margin: 0;
+            color: #333;
+        }
+
+        .emoji {
+            font-size: 1.3em;
+        }
+
+        .benefit-list {
+            background: #e8f4f8;
+            border: 2px solid #17a2b8;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .benefit-list h3 {
+            color: #17a2b8;
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+
+        .benefit-list ul {
+            margin: 10px 0;
+            padding-left: 25px;
+        }
+
+        .benefit-list li {
+            margin: 10px 0;
+            font-size: 1.05em;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        .comparison-table th {
+            background-color: #667eea;
+            color: white;
+        }
+
+        .comparison-table tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+
+        .old-method {
+            color: #dc3545;
+        }
+
+        .new-method {
+            color: #28a745;
+            font-weight: bold;
+        }
+
+        footer {
+            margin-top: 30px;
+            padding-top: 15px;
+            border-top: 2px solid #e9ecef;
+            text-align: center;
+            color: #6c757d;
+            font-size: 0.95em;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>📋 一括シートApps v2 改修報告書</h1>
+        <p>2025年11月19日</p>
+    </div>
+
+    <div class="important-box" style="background: #ffe6e6; border-color: #dc3545;">
+        <h2 style="color: #721c24;">🆕 一括登録シート Ver.35（最新版）</h2>
+        <div class="main-point" style="background: white; border-left-color: #dc3545;">
+            <strong>最新版のスプレッドシートはこちら:</strong><br>
+            <a href="https://docs.google.com/spreadsheets/d/1YpZRCIWZ7FVSMNaepyTOmdlxQVUVl7gOw6qw3Vaqnjs/edit?gid=511243249#gid=511243249"
+               target="_blank"
+               style="display: block; width: 100%; padding: 15px; margin-top: 10px; background: #dc3545; color: white; text-align: center; text-decoration: none; border-radius: 5px; font-size: 16px; font-weight: bold; transition: background 0.3s;"
+               onmouseover="this.style.background='#c82333'"
+               onmouseout="this.style.background='#dc3545'">
+                🌟 一括登録シート Ver.35 を開く
+            </a>
+            <p style="margin-top: 15px; font-size: 0.95em;">
+                <strong>✨ Ver.35の主な改善点:</strong>
+            </p>
+            <div style="margin-top: 10px; padding: 15px; background: #f8f9fa; border-radius: 5px; border-left: 4px solid #dc3545;">
+                <ul style="margin-left: 20px; line-height: 1.8;">
+                    <li><strong>シッピングポリシー判定を想定関税ベースに変更</strong> - より正確な送料設定が可能になりました</li>
+                    <li><strong>DDU閾値設定の簡素化</strong> - 2つの設定値が1つになり、わかりやすくなりました</li>
+                    <li><strong>デフォルト設定の最適化</strong> - すぐに使える設定になっています</li>
+                </ul>
+            </div>
+            <p style="margin-top: 10px; font-size: 0.9em; color: #6c757d;">
+                ※ クリックすると新しいタブでスプレッドシートが開きます
+            </p>
+        </div>
+    </div>
+
+    <div class="important-box" style="background: #e7f3e7; border-color: #28a745;">
+        <h2 style="color: #155724;">🚀 Universal Scraper Chrome拡張機能</h2>
+        <div class="main-point" style="background: white; border-left-color: #28a745;">
+            <strong>以下のボタンから拡張機能をダウンロードしてください:</strong><br>
+            <a href="https://github.com/naokijodan/universal-scraper/releases/download/v1.1.2/universal-scraper.zip"
+               download
+               style="display: block; width: 100%; padding: 15px; margin-top: 10px; background: #28a745; color: white; text-align: center; text-decoration: none; border-radius: 5px; font-size: 16px; font-weight: bold; transition: background 0.3s;"
+               onmouseover="this.style.background='#218838'"
+               onmouseout="this.style.background='#28a745'">
+                📥 Universal Scraper をダウンロード (ZIP) - 🆕 最新版! (Ver.1.1.2 / 2025年11月19日)
+            </a>
+            <p style="margin-top: 15px; font-size: 0.95em;">
+                <strong>📖 インストール手順:</strong>
+            </p>
+            <div style="margin-top: 10px; padding: 15px; background: #f8f9fa; border-radius: 5px; border-left: 4px solid #28a745;">
+                <ol style="margin-left: 20px; line-height: 1.8;">
+                    <li>上記のボタンからZIPファイルをダウンロード</li>
+                    <li>ZIPファイルを解凍してフォルダを作成</li>
+                    <li>Chromeで <code style="background: #e9ecef; padding: 2px 6px; border-radius: 3px;">chrome://extensions/</code> を開く</li>
+                    <li>右上の「デベロッパーモード」をオンにする</li>
+                    <li>「パッケージ化されていない拡張機能を読み込む」をクリック</li>
+                    <li>解凍したフォルダを選択</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+
+    <div class="important-box">
+        <h2>🎯 今回の改修で何が変わったの？</h2>
+
+        <div class="main-point" style="background: #d4edda; border-left-color: #28a745;">
+            <span class="emoji">💡</span> <strong>【根本的な変更】シッピングポリシーの選び方が変わりました</strong><br>
+            <br>
+            <strong class="old-method">旧方式:</strong> 販売価格を基準にポリシーを選んでいました<br>
+            <strong class="new-method">新方式:</strong> 想定関税額（AD列）を基準にポリシーを選びます<br>
+            <br>
+            これにより、関税率が変わっても正確な送料設定ができるようになりました。
+        </div>
+
+        <div class="main-point">
+            <span class="emoji">🔧</span> <strong>DDU閾値の設定が簡単になりました</strong><br>
+            <br>
+            <strong class="old-method">旧方式:</strong> 「価格閾値」と「調整額」の2つを設定する必要がありました<br>
+            <strong class="new-method">新方式:</strong> 「想定関税閾値」の1つだけ設定すればOKです<br>
+            <br>
+            例えば、閾値を50ドルに設定すると、想定関税が50ドル以上の商品は自動的に50ドル用のポリシーが適用されます。
+        </div>
+
+        <div class="main-point">
+            <span class="emoji">⚡</span> <strong>すぐに使えるデフォルト設定</strong><br>
+            新規シートを作成したとき、以下の値がデフォルトで設定されます：
+            <ul style="margin-top: 10px; margin-left: 20px;">
+                <li>DDU閾値: 310ドル</li>
+                <li>送料計算切替基準金額: 5,500円</li>
+                <li>低価格商品配送方法: Small Packet</li>
+            </ul>
+        </div>
+
+        <div class="main-point">
+            <span class="emoji">📊</span> <strong>ポリシー名の意味が変わりました</strong><br>
+            <br>
+            <strong class="old-method">旧:</strong> <code>_0001_0050</code> = 販売価格1〜50ドル<br>
+            <strong class="new-method">新:</strong> <code>_0001_0050</code> = 想定関税1〜50ドル（送料 = 50ドル）<br>
+            <br>
+            5ドル刻みの税範囲に対応（例: _0001_0005, _0006_0010, ...）
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>📝 変更点の詳細</h2>
+
+        <div class="feature-box">
+            <h3>1. シッピングポリシー判定ロジックの変更</h3>
+            <p>
+                従来は販売価格（R列）を見てポリシーを決めていましたが、今回から想定関税額（AD列）を基準にします。<br>
+                <br>
+                <strong>メリット:</strong>
+            </p>
+            <ul>
+                <li>関税率が変わっても、適切なポリシーが自動的に選ばれます</li>
+                <li>送料 = 想定関税の上限値になるため、計算が明確です</li>
+                <li>関税率の異なる商品を混在させても正確に処理できます</li>
+            </ul>
+        </div>
+
+        <div class="feature-box">
+            <h3>2. DDU価格調整機能の簡素化</h3>
+            <p>
+                DDU（関税別払い）で出品する際の価格調整が簡単になりました。<br>
+                <br>
+                <strong>設定方法:</strong>
+            </p>
+            <ul>
+                <li>AP2セル: ON/OFF（DDU調整を有効にするかどうか）</li>
+                <li>AP3セル: 想定関税閾値（例: 50ドル）</li>
+            </ul>
+            <p style="margin-top: 10px;">
+                想定関税がこの閾値以上の場合、DDP価格（S列）から閾値を引いた価格がAG列に表示されます。
+            </p>
+        </div>
+
+        <div class="feature-box">
+            <h3>3. その他の改善</h3>
+            <ul>
+                <li><strong>APIトークンの保存期間:</strong> 1週間 → 無期限に変更</li>
+                <li><strong>データインポート:</strong> デフォルトでチェックが外れた状態に変更（誤操作防止）</li>
+                <li><strong>テンプレート/ポリシー参照:</strong> 初回表示時の「該当なし」問題を修正</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>📋 新旧比較表</h2>
+
+        <table class="comparison-table">
+            <tr>
+                <th>項目</th>
+                <th>旧バージョン</th>
+                <th>新バージョン (v2)</th>
+            </tr>
+            <tr>
+                <td>ポリシー判定基準</td>
+                <td class="old-method">販売価格（R列）</td>
+                <td class="new-method">想定関税（AD列）</td>
+            </tr>
+            <tr>
+                <td>DDU閾値設定</td>
+                <td class="old-method">2値（価格閾値 + 調整額）</td>
+                <td class="new-method">1値（想定関税閾値のみ）</td>
+            </tr>
+            <tr>
+                <td>ポリシー名の意味</td>
+                <td class="old-method">販売価格範囲</td>
+                <td class="new-method">想定関税範囲</td>
+            </tr>
+            <tr>
+                <td>送料の決定</td>
+                <td class="old-method">複雑な計算式</td>
+                <td class="new-method">上限値 = 送料</td>
+            </tr>
+            <tr>
+                <td>APIトークン保存</td>
+                <td class="old-method">1週間</td>
+                <td class="new-method">無期限</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="benefit-list">
+        <h3>✅ この改修で得られるメリット</h3>
+        <ul>
+            <li><strong>設定が簡単に:</strong> 覚えることが少なくなり、ミスが減ります</li>
+            <li><strong>計算が明確に:</strong> 想定関税 = 送料という単純な関係になりました</li>
+            <li><strong>関税率変更に強い:</strong> 関税率が変わっても正確なポリシーが選ばれます</li>
+            <li><strong>すぐに使える:</strong> デフォルト設定が最適化されています</li>
+        </ul>
+    </div>
+
+    <footer>
+        <p>
+            <strong>一括シートApps v2</strong> - 2025年11月19日 改修<br>
+            ご不明な点がございましたらお気軽にお問い合わせください。
+        </p>
+    </footer>
+</body>
+</html>
